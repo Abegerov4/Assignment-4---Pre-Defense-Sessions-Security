@@ -1,1 +1,27 @@
-body{font-family:Arial;background:#f4f6f8}.card{background:#fff;padding:10px;margin:10px;border-radius:8px}
+* { box-sizing: border-box; margin:0; padding:0; font-family:'Inter',sans-serif; }
+body { background:#f4f6f8; color:#222; }
+header { background:linear-gradient(135deg,#111,#333); color:white; padding:30px; text-align:center; }
+header h1 { font-size:36px; }
+header p { opacity:0.8; margin-top:8px; }
+
+.panel { background:white; margin:20px auto; padding:20px; max-width:900px; border-radius:10px; box-shadow:0 10px 25px rgba(0,0,0,0.05); }
+.panel h2 { margin-bottom:15px; }
+.form, .controls { display:flex; gap:10px; flex-wrap:wrap; }
+input { padding:10px; border-radius:8px; border:1px solid #ccc; flex:1; min-width:150px; }
+button { padding:10px 16px; border-radius:8px; border:none; cursor:pointer; background:#ddd; font-weight:600; }
+button:hover { opacity:0.9; }
+.primary { background:#0077ff; color:white; }
+
+.grid { max-width:1200px; margin:20px auto; display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:20px; padding:0 20px; }
+
+.card { background:white; border-radius:16px; padding:18px; box-shadow:0 12px 30px rgba(0,0,0,0.08); display:flex; flex-direction:column; gap:12px; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+.card:hover { transform:translateY(-4px); box-shadow:0 18px 40px rgba(0,0,0,0.12); }
+.card h3 { font-size:18px; font-weight:700; margin-bottom:4px; }
+.card .brand { font-size:14px; color:#666; }
+.card .price { font-size:18px; font-weight:700; margin-top:4px; }
+.card input { padding:8px; border-radius:8px; border:1px solid #e0e0e0; background:#fafafa; }
+.card .actions { display:flex; gap:10px; margin-top:10px; }
+.card .update { flex:1; background:#0077ff; color:white; }
+.card .delete { flex:1; background:#ff3b3b; color:white; }
+
+footer { text-align:center; padding:20px; color:#777; }
