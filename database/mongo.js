@@ -1,22 +1,22 @@
 const { MongoClient } = require('mongodb');
 
-const URL = process.env.MONGO_URI;
-const DB_NAME = 'sneaker_shop';
-
-if (!URL) {
-  throw new Error('MONGO_URI environment variable not set');
-}
-
-const client = new MongoClient(URL);
-
 let db;
 
 async function connectDB() {
-  if (!db) {
-    await client.connect();
-    console.log('MongoDB connected');
-    db = client.db(DB_NAME);
+  if (db) return db; 
+
+  if (!process.env.MONGO_URI) {
+    throw new Error('MONGO_URI не задана в переменных окружения!');
   }
+
+  const client = new MongoClient(process.env.MONGO_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  });
+
+  await client.connect();
+  console.log('MongoDB Atlas connected');
+  db = client.db('sneaker_shop'); 
   return db;
 }
 
