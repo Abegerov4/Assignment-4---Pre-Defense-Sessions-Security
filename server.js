@@ -12,13 +12,14 @@ const app = express();
 app.use(express.json());
 
 app.use(session({
+  name: 'connect.sid',
   secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: false,
   cookie: {
     httpOnly: true,
-    secure: process.env.NODE_ENV === 'production',
-    sameSite: 'none'
+    secure: true,          
+    sameSite: 'none'       
   }
 }));
 
