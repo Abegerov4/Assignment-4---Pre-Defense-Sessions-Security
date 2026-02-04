@@ -37,6 +37,7 @@ async function loadSneakers(sortBy) {
 async function login() {
   const res = await fetch('/api/auth/login', {
     method: 'POST',
+    credentials: 'include',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
       username: document.getElementById('username').value,
@@ -62,6 +63,7 @@ async function addSneaker() {
 
   const res = await fetch('/api/sneakers', {
     method: 'POST',
+    credentials: 'include',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
       name,
@@ -96,6 +98,7 @@ async function addSneaker() {
 async function updateSneaker(id) {
   const res = await fetch(`/api/sneakers/${id}`, {
     method: 'PUT',
+    credentials: 'include',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
       name: document.getElementById('n' + id).value,
@@ -113,7 +116,8 @@ async function updateSneaker(id) {
 }
 
 async function deleteSneaker(id) {
-  const res = await fetch(`/api/sneakers/${id}`, { method: 'DELETE' });
+  const res = await fetch(`/api/sneakers/${id}`, { 
+    method: 'DELETE', credentials: 'include' });
 
   if (res.status === 401) {
     alert('Please login first');
