@@ -1,15 +1,29 @@
+require('dotenv').config();
+console.log('THIS SERVER FILE IS RUNNING');
+
 const express = require('express');
+const session = require('express-session');
+
 const sneakersRoutes = require('./routes/sneakers');
+const authRoutes = require('./routes/auth');
 
 const app = express();
 
 app.use(express.json());
+
+app.use(session({
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: false,
+  cookie: {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === 'production'
+  }
+}));
+
 app.use(express.static('public'));
 
+app.use('/api/auth', authRoutes);
 app.use('/api/sneakers', sneakersRoutes);
 
-const PORT = process.env.PORT || 3000;
-
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+app.listen(process.env.PORT || 3000);

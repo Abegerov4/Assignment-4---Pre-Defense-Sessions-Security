@@ -3,20 +3,17 @@ const { MongoClient } = require('mongodb');
 let db;
 
 async function connectDB() {
-  if (db) return db; 
+  if (db) return db;
 
   if (!process.env.MONGO_URI) {
-    throw new Error('MONGO_URI не задана в переменных окружения!');
+    throw new Error('MONGO_URI not set');
   }
 
-  const client = new MongoClient(process.env.MONGO_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  });
-
+  const client = new MongoClient(process.env.MONGO_URI);
   await client.connect();
-  console.log('MongoDB Atlas connected');
-  db = client.db('sneaker_shop'); 
+
+  console.log('MongoDB connected');
+  db = client.db('sneaker_shop');
   return db;
 }
 

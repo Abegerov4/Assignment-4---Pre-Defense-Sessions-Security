@@ -11,7 +11,7 @@ npm install
 Create `.env` file:
 ```
 PORT=3000
-MONGO_URI=mongodb+srv://aslan:031205Hasashi.@cluster0.bl0xgt5.mongodb.net/sneaker_shop?retryWrites=true&w=majority
+MONGO_URI=mongodb+srv://Aldiyar:ALDIYARZHANGABYL040506@cluster0.lioff9j.mongodb.net/?appName=Cluster0
 
 ```
 

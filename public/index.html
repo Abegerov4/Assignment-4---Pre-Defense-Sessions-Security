@@ -13,11 +13,22 @@
 </header>
 
 <section class="panel">
+  <h2>Login</h2>
+  <input id="username" placeholder="Username">
+  <input id="password" type="password" placeholder="Password">
+  <button onclick="login()">Login</button>
+</section>
+
+<section class="panel">
   <h2>Add new sneaker</h2>
   <div class="form">
     <input id="sneakerName" placeholder="Sneaker name">
     <input id="brand" placeholder="Brand">
     <input id="price" type="number" placeholder="Price">
+    <input id="size" type="number" placeholder="Size">
+    <input id="color" placeholder="Color">
+    <input id="category" placeholder="Category">
+
     <button class="primary" onclick="addSneaker()">Add Sneaker</button>
   </div>
 </section>
@@ -31,11 +42,10 @@
   </div>
 </section>
 
-<section class="grid" id="list">
-</section>
+<section class="grid" id="list"></section>
 
 <footer>
-  <p>Assignment 3</p>
+  <p>Assignment 4</p>
 </footer>
 
 <script src="script.js"></script>
